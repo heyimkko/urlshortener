@@ -6,8 +6,15 @@ end
 post '/urls' do
   @urls = Url.order("created_at DESC") #TODO: make this order in a sane way
   @url = Url.new :long_url => params[:long_url]
-  @url.save
-  redirect '/'
+  if @url.save
+    redirect '/'
+  else
+    redirect '/error'
+  end
+end
+
+get '/error' do
+  erb :error
 end
 
 get '/:short_url' do
