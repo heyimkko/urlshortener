@@ -11,19 +11,19 @@
 </style>
 
 <div class="container">
-  <h1>Url shortener</h1>
+  <h1>Url Shortener</h1>
 
   <div class="shortener">
   <form method="post" action="/urls">
     <input type="text" name="long_url" placeholder="Input URL Here" required>
     <input type="submit" value="Convert!">
   </form>
-
+<BR>
 
 </div>
   <% @urls.each do |url| %>
     <li>
-      <%= url.long_url%> is now <a href='<%= url.long_url%>'> <%= url.short_url %> </a>
+      <%= url.long_url%> is now <a href='<%= url.short_url%>'> <%= url.short_url %> </a>  click count is now <%= url.click_count %>
     </li>
   <% end %>
 </div>
